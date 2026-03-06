@@ -4,202 +4,543 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>العرض الفني الاستراتيجي - أطياف بيكاري</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --orange: #FF6B35;
+            --orange-dark: #E85A2A;
+            --pink: #FFE5E5;
+            --pink-strong: #FFB8C9;
+            --yellow: #FFE566;
+            --yellow-strong: #FFD93D;
+            --blue-light: #B8E0F0;
+            --grey: #F5F5F5;
+            --grey-text: #6B7280;
+            --black: #1a1a1a;
+            --white: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Cairo', Arial, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-            color: #222;
+            font-family: 'Cairo', sans-serif;
             margin: 0;
             padding: 0;
+            background: #f0f0f0;
+            color: var(--black);
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
-            padding: 40px 32px 32px 32px;
-        }
-        h1, h2, h3 {
-            color: #1a237e;
-            margin-top: 0;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-        h2 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-top: 32px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-top: 24px;
-            margin-bottom: 8px;
-        }
-        ul, ol {
-            padding-right: 24px;
-        }
-        .section {
-            margin-bottom: 36px;
-        }
-        .highlight {
-            background: #e3f2fd;
-            border-right: 4px solid #1976d2;
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin-bottom: 18px;
-            font-size: 1.1rem;
-        }
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 18px 0 18px 0;
-        }
-        .timeline-item {
-            background: #f5f7fa;
-            border-right: 4px solid #1a237e;
-            border-radius: 8px;
-            padding: 10px 18px;
-            font-size: 1rem;
-        }
-        .investment-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 18px 0;
-        }
-        .investment-table th, .investment-table td {
-            border: 1px solid #b0bec5;
-            padding: 10px 14px;
-            text-align: right;
-        }
-        .investment-table th {
-            background: #e3f2fd;
-            color: #1a237e;
+        .deck {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
         .slide {
-            background: #f8fafc;
+            min-height: 320px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
-            padding: 18px 22px;
-            margin-bottom: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-        .brand {
-            color: #1976d2;
+        .slide-header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slide-header.orange {
+            background: var(--orange);
+            color: var(--white);
+        }
+        .slide-header .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .slide-header .year {
+            font-size: 0.85rem;
+            opacity: 0.95;
+        }
+        .slide-body {
+            padding: 24px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            color: var(--black);
+            line-height: 1.3;
+        }
+        .slide-subtitle {
+            font-size: 0.95rem;
+            color: var(--grey-text);
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+        /* Slide 1: Hero */
+        .slide-hero {
+            background: var(--white);
+            position: relative;
+        }
+        .slide-hero .slide-body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .slide-hero .hero-text {
+            flex: 1;
+        }
+        .slide-hero .hero-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin: 0 0 12px 0;
+            line-height: 1.35;
+        }
+        .slide-hero .hero-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .slide-hero .tag {
+            background: var(--grey);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .slide-hero .hero-graphic {
+            width: 140px;
+            height: 140px;
+            background: var(--orange);
+            border-radius: 24px;
+            transform: rotate(-8deg);
+            flex-shrink: 0;
+        }
+        /* Slide 2: Comparison */
+        .slide-compare {
+            background: var(--white);
+        }
+        .slide-compare .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .slide-compare .compare-table th {
+            text-align: right;
+            padding: 10px 8px;
             font-weight: 700;
-            font-size: 1.1em;
+            color: var(--black);
+            border-bottom: 2px solid var(--grey);
+        }
+        .slide-compare .compare-table td {
+            text-align: center;
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .slide-compare .compare-table td:first-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .slide-compare .icon-cell {
+            width: 36px;
+        }
+        .slide-compare .icon-wrap {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .slide-compare .icon-wrap.check {
+            background: #D1FAE5;
+            color: #059669;
+        }
+        .slide-compare .icon-wrap.cross {
+            background: var(--grey);
+            color: #9CA3AF;
+        }
+        .slide-compare .col-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin: 0 auto 4px auto;
+        }
+        .slide-compare .col-icon.orange { background: var(--orange); }
+        .slide-compare .col-icon.pink { background: var(--pink-strong); }
+        .slide-compare .col-icon.yellow { background: var(--yellow-strong); }
+        .slide-footer {
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            color: var(--grey-text);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+        }
+        /* Slide 3: Traction */
+        .slide-traction {
+            background: var(--pink);
+        }
+        .slide-traction .slide-title {
+            margin-bottom: 8px;
+        }
+        .slide-traction .growth-big {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--black);
+            margin: 8px 0 16px 0;
+            text-align: left;
+        }
+        .slide-traction .chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 16px;
+        }
+        .slide-traction .bar-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide-traction .bar {
+            width: 100%;
+            min-height: 24px;
+            background: rgba(255,184,201,0.6);
+            border-radius: 6px 6px 0 0;
+            margin-bottom: 8px;
+        }
+        .slide-traction .bar.highlight {
+            background: var(--black);
+        }
+        .slide-traction .bar-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .slide-traction .bar-value {
+            font-size: 0.65rem;
+            color: var(--grey-text);
+            margin-bottom: 4px;
+        }
+        /* Slide 4: Facts */
+        .slide-facts {
+            background: var(--white);
+        }
+        .slide-facts .facts-cards {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex: 1;
+        }
+        .slide-facts .fact-card {
+            flex: 1;
+            border-radius: 12px;
+            padding: 20px 14px;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 120px;
+        }
+        .slide-facts .fact-card.orange { background: var(--orange); }
+        .slide-facts .fact-card.pink { background: var(--pink-strong); }
+        .slide-facts .fact-card.yellow { background: var(--yellow-strong); }
+        .slide-facts .fact-card .fact-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .slide-facts .fact-card .fact-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0 0 4px 0;
+        }
+        .slide-facts .fact-card .fact-label {
+            font-size: 0.75rem;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+        /* Slide 5: Market */
+        .slide-market {
+            background: var(--yellow-strong);
+        }
+        .slide-market .market-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--black);
+            margin: 0 0 8px 0;
+        }
+        .slide-market .slide-title {
+            margin-bottom: 16px;
+        }
+        .slide-market .diagram-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-top: auto;
+            flex: 1;
+        }
+        .slide-market .circles {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .slide-market .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.7rem;
+        }
+        .slide-market .circle.outer {
+            width: 120px;
+            height: 120px;
+            top: 0;
+            right: 0;
+            background: var(--white);
+        }
+        .slide-market .circle.mid {
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+        }
+        .slide-market .circle.inner {
+            width: 44px;
+            height: 44px;
+            top: 38px;
+            right: 38px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+        }
+        .slide-market .labels {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .slide-market .label-item {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        /* Slide 6: CTA */
+        .slide-cta {
+            background: var(--blue-light);
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-cta .cta-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
+            text-align: center;
+            margin: 0;
+            padding: 0 20px;
+        }
+        @media (max-width: 900px) {
+            .deck {
+                grid-template-columns: 1fr;
+            }
         }
         @media (max-width: 600px) {
-            .container { padding: 16px 4px; }
-            h1 { font-size: 1.5rem; }
-            h2 { font-size: 1.1rem; }
+            .deck { padding: 12px; }
+            .slide-hero .slide-body { flex-direction: column; }
+            .slide-hero .hero-title { font-size: 1.35rem; }
+            .slide-facts .facts-cards { flex-direction: column; }
+            .slide-traction .growth-big { font-size: 1.75rem; }
+            .slide-market .market-value { font-size: 1.75rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>العرض الفني الاستراتيجي المتكامل<br><span class="brand">شركة أطياف بيكاري</span></h1>
-        <div class="section">
-            <div class="highlight">
-                يهدف هذا المشروع إلى تمكين الشركة من التحول من كيان تشغيلي تقليدي إلى مؤسسة استراتيجية عالية النمو قابلة للتوسع والتقييم والاستثمار طويل المدى.
-            </div>
-            <ul>
-                <li>تصميم نموذج عمل متقدم</li>
-                <li>بناء علامة تجارية قوية</li>
-                <li>إنشاء منظومة تسويق متعددة القنوات</li>
-                <li>تطوير إطار مؤسسي يدعم التوسع الإقليمي المستقبلي</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>الرؤية الاستراتيجية للمشروع</h2>
-            <ul>
-                <li>بناء شركة غذائية مؤسسية ذات نموذج أعمال قابل للتوسع</li>
-                <li>تنويع مصادر الإيرادات</li>
-                <li>تطوير أصول استراتيجية عالية القيمة (العلامة التجارية، شبكة التوزيع، القدرات التشغيلية، البنية الرقمية، تجربة العملاء)</li>
-                <li>التحول التدريجي إلى كيان استثماري متكامل</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>الأهداف الاستراتيجية</h2>
-            <ul>
-                <li>تصميم نموذج عمل قابل للتوسع إقليميًا</li>
-                <li>تنويع مصادر الإيرادات وتقليل الاعتماد على قناة واحدة</li>
-                <li>بناء علامة تجارية ذات قيمة سوقية مرتفعة</li>
-                <li>تطوير منظومة توزيع متعددة القنوات</li>
-                <li>رفع كفاءة التشغيل وربحية المنتجات</li>
-                <li>تأسيس بنية مؤسسية تدعم الاستثمار والشراكات</li>
-                <li>إعداد الشركة لمسارات توسع طويلة المدى</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>مراحل العمل</h2>
-            <div class="timeline">
-                <div class="timeline-item"><b>المرحلة 1:</b> التشخيص الاستراتيجي المتقدم</div>
-                <div class="timeline-item"><b>المرحلة 2:</b> تصميم نموذج العمل واستراتيجية النمو</div>
-                <div class="timeline-item"><b>المرحلة 3:</b> بناء العلامة والبنية السوقية</div>
-                <div class="timeline-item"><b>المرحلة 4:</b> إدارة النمو والتوسع التجاري</div>
+    <div class="deck">
+        <!-- Slide 1: Hero -->
+        <div class="slide slide-hero">
+            <div class="slide-body">
+                <div class="hero-text">
+                    <h1 class="hero-title">تمكين النمو الاستراتيجي وإدارة التحول المؤسسي</h1>
+                    <div class="hero-tags">
+                        <span class="tag">العرض الاستراتيجي</span>
+                        <span class="tag">2025</span>
+                    </div>
+                </div>
+                <div class="hero-graphic"></div>
             </div>
         </div>
-        <div class="section">
-            <h2>الجدول الزمني التقديري</h2>
-            <ul>
-                <li>التشخيص الاستراتيجي: 4 أسابيع</li>
-                <li>تصميم الاستراتيجية ونموذج العمل: 6 أسابيع</li>
-                <li>بناء العلامة والبنية التسويقية: 8 أسابيع</li>
-                <li>إدارة النمو والتوسع: مستمرة</li>
-            </ul>
+
+        <!-- Slide 2: Why we're better -->
+        <div class="slide slide-compare">
+            <div class="slide-header orange">
+                <span class="logo">أطياف بيكاري</span>
+                <span class="year">2025</span>
+            </div>
+            <div class="slide-body">
+                <h2 class="slide-title">لماذا نهجنا أفضل</h2>
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>الميزة</th>
+                            <th class="icon-cell"><div class="col-icon orange"></div></th>
+                            <th class="icon-cell"><div class="col-icon pink"></div></th>
+                            <th class="icon-cell"><div class="col-icon yellow"></div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نموذج عمل قابل للتوسع</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                        </tr>
+                        <tr>
+                            <td>علامة تجارية قوية</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                        </tr>
+                        <tr>
+                            <td>قنوات متعددة</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                        </tr>
+                        <tr>
+                            <td>إطار استثماري</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                        </tr>
+                        <tr>
+                            <td>تشخيص استراتيجي متقدم</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                        </tr>
+                        <tr>
+                            <td>خارطة توسع طويلة المدى</td>
+                            <td><div class="icon-wrap check">✓</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                            <td><div class="icon-wrap cross">✕</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slide-footer">
+                <span>أطياف بيكاري</span>
+                <span>2025</span>
+            </div>
         </div>
-        <div class="section">
-            <h2>هيكل الاستثمار المرحلي</h2>
-            <table class="investment-table">
-                <tr><th>المرحلة</th><th>قيمة الاستثمار</th><th>مدة التنفيذ</th></tr>
-                <tr><td>التشخيص الاستراتيجي</td><td>50,000 ريال</td><td>4 أسابيع</td></tr>
-                <tr><td>تصميم الاستراتيجية ونموذج العمل</td><td>90,000 ريال</td><td>6 أسابيع</td></tr>
-                <tr><td>بناء العلامة والبنية التسويقية</td><td>70,000 ريال</td><td>8 أسابيع</td></tr>
-                <tr><td>إدارة النمو والتسويق</td><td>18,000 ريال (شهري)</td><td>مستمرة</td></tr>
-            </table>
-            <h3>خطة الدفع</h3>
-            <ul>
-                <li>50% عند توقيع العقد</li>
-                <li>30% بعد اعتماد الاستراتيجية</li>
-                <li>20% بعد تسليم البنية التسويقية</li>
-            </ul>
+
+        <!-- Slide 3: Traction -->
+        <div class="slide slide-traction">
+            <div class="slide-body">
+                <h2 class="slide-title">مسار التنفيذ والجداول</h2>
+                <p class="slide-subtitle">مراحل واضحة زمنياً مع إطار استثماري مرحلي يدعم التحول من التشغيل إلى النمو المؤسسي.</p>
+                <div class="growth-big">+26 أسبوع</div>
+                <div class="chart">
+                    <div class="bar-wrap">
+                        <span class="bar-value">4</span>
+                        <div class="bar" style="height: 40px;"></div>
+                        <span class="bar-label">المرحلة 1</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <span class="bar-value">6</span>
+                        <div class="bar" style="height: 55px;"></div>
+                        <span class="bar-label">المرحلة 2</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <span class="bar-value">8</span>
+                        <div class="bar highlight" style="height: 75px;"></div>
+                        <span class="bar-label">المرحلة 3</span>
+                    </div>
+                    <div class="bar-wrap">
+                        <span class="bar-value">مستمر</span>
+                        <div class="bar" style="height: 50px;"></div>
+                        <span class="bar-label">المرحلة 4</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>أطياف بيكاري</span>
+                <span>2025</span>
+                <span>001</span>
+            </div>
         </div>
-        <div class="section">
-            <h2>مؤشرات قياس الأداء</h2>
-            <ul>
-                <li>نمو الإيرادات</li>
-                <li>تنوع مصادر الدخل</li>
-                <li>قوة العلامة في السوق</li>
-                <li>زيادة الحصة السوقية</li>
-                <li>نمو القنوات البيعية</li>
-                <li>جاهزية التوسع الجغرافي</li>
-            </ul>
+
+        <!-- Slide 4: Facts -->
+        <div class="slide slide-facts">
+            <div class="slide-body">
+                <h2 class="slide-title">بعض المؤشرات والأرقام</h2>
+                <div class="facts-cards">
+                    <div class="fact-card orange">
+                        <div class="fact-icon">◇</div>
+                        <span class="fact-value">4</span>
+                        <span class="fact-label">مراحل تنفيذية رئيسية</span>
+                    </div>
+                    <div class="fact-card pink">
+                        <div class="fact-icon">▬</div>
+                        <span class="fact-value">228</span>
+                        <span class="fact-label">ألف ريال استثمار مرحلي</span>
+                    </div>
+                    <div class="fact-card yellow">
+                        <div class="fact-icon">●</div>
+                        <span class="fact-value">6</span>
+                        <span class="fact-label">مؤشرات أداء رئيسية</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>أطياف بيكاري</span>
+                <span>2025</span>
+            </div>
         </div>
-        <div class="section">
-            <h2>محتوى العرض التقديمي (Pitch Deck)</h2>
-            <div class="slide"><b>1 — المقترح الاستراتيجي المتكامل:</b> تحول مؤسسي شامل لبناء شركة غذائية عالية النمو.</div>
-            <div class="slide"><b>2 — السياق الاستراتيجي:</b> السوق يتجه نحو العلامات القابلة للتوسع والمنصات متعددة القنوات.</div>
-            <div class="slide"><b>3 — التحدي الحالي:</b> تشغيل قوي بدون إطار نمو مؤسسي منظم.</div>
-            <div class="slide"><b>4 — الرؤية المستقبلية:</b> شركة قابلة للتوسع الإقليمي وبناء قيمة استثمارية عالية.</div>
-            <div class="slide"><b>5 — منهجية التحول:</b> تشخيص — تصميم — بناء — نمو — توسع.</div>
-            <div class="slide"><b>6 — تصميم نموذج العمل:</b> تنويع الإيرادات + قنوات متعددة + قيمة علامة مرتفعة.</div>
-            <div class="slide"><b>7 — بناء الأصول الاستراتيجية:</b> العلامة — التوزيع — البنية الرقمية — تجربة العميل.</div>
-            <div class="slide"><b>8 — منظومة النمو:</b> Omnichannel Growth Engine.</div>
-            <div class="slide"><b>9 — القيمة الاقتصادية:</b> رفع تقييم الشركة وتعزيز الجاذبية الاستثمارية.</div>
-            <div class="slide"><b>10 — خارطة الطريق التنفيذية:</b> تحول مرحلي منخفض المخاطر.</div>
-            <div class="slide"><b>11 — هيكل الاستثمار:</b> استثمار مرحلي مقابل بناء قيمة طويلة المدى.</div>
-            <div class="slide"><b>12 — النتيجة المتوقعة:</b> شركة مؤسسية قابلة للنمو والاستثمار والتوسع.</div>
+
+        <!-- Slide 5: Market / Investment -->
+        <div class="slide slide-market">
+            <div class="slide-body">
+                <div class="market-value">228,000 ريال</div>
+                <h2 class="slide-title">هيكل الاستثمار المرحلي</h2>
+                <div class="diagram-wrap">
+                    <div class="circles">
+                        <div class="circle outer">المرحلة 1–3</div>
+                        <div class="circle mid">الاستراتيجية + العلامة</div>
+                        <div class="circle inner">النمو</div>
+                    </div>
+                    <div class="labels">
+                        <span class="label-item">إجمالي الاستثمار الأولي</span>
+                        <span class="label-item">التشخيص + التصميم + البناء</span>
+                        <span class="label-item">إدارة النمو الشهرية</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="section" style="text-align:center; margin-top:40px;">
-            <span style="color:#1976d2; font-size:1.2em; font-weight:700;">شركة أطياف بيكاري — نحو الريادة المؤسسية في قطاع الأغذية</span>
+
+        <!-- Slide 6: CTA -->
+        <div class="slide slide-cta">
+            <div class="slide-body">
+                <p class="cta-text">الصعود بأطياف بيكاري إلى المستوى المؤسسي التالي</p>
+            </div>
         </div>
     </div>
 </body>
